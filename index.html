@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VínculoCerto — Relações trabalhistas sem complicação</title>
+<meta name="description" content="A plataforma que resolve as dúvidas trabalhistas do empresário antes de virar problema. Alertas, documentos, consultor IA e muito mais.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde: #0D6B4F;
+  --verde-claro: #1A9E75;
+  --verde-bg: #E8F5F0;
+  --verde-borda: #A8D9C8;
+  --creme: #FAF8F3;
+  --creme-escuro: #F0EDE4;
+  --texto: #1A1A18;
+  --texto-suave: #5A5A52;
+  --texto-leve: #8A8A7E;
+  --borda: #E2DDD4;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--creme);
+  color: var(--texto);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,248,243,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--borda);
+  padding: 0 2rem;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--verde);
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--texto); }
+.nav-cta {
+  background: var(--verde);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: #0A5840; transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 100px 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, #D4EDE4 0%, transparent 60%),
+              radial-gradient(ellipse 40% 40% at 10% 80%, #E8F0D8 0%, transparent 50%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+  background-image: linear-gradient(var(--texto) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--texto) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--verde-bg);
+  border: 1px solid var(--verde-borda);
+  color: var(--verde);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease both;
+}
+.hero-tag::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--verde-claro);
+}
+h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--texto);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--verde);
+}
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--texto-suave);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.hero-actions {
+  display: flex; gap: 1rem; align-items: center;
+  animation: fadeUp 0.6s 0.3s ease both;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--verde);
+  color: white;
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: #0A5840; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,107,79,0.25); }
+.btn-secondary {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-secondary:hover { color: var(--texto); }
+
+/* HERO CARD */
+.hero-card-wrap {
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+.hero-card {
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+}
+.card-header {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 1.25rem;
+}
+.card-logo-sm {
+  width: 36px; height: 36px;
+  background: var(--verde);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-logo-sm svg { width: 18px; height: 18px; fill: white; }
+.card-title-sm { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 600; color: var(--verde); }
+.card-sub-sm { font-size: 0.75rem; color: var(--texto-leve); }
+
+.alert-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  border-left: 3px solid;
+}
+.alert-item.red { background: #FEF2F2; border-color: #E24B4A; }
+.alert-item.amber { background: #FFFBEB; border-color: #F59E0B; }
+.alert-item.green { background: #F0FDF4; border-color: #22C55E; }
+.alert-text { font-size: 0.8rem; font-weight: 500; color: var(--texto); }
+.alert-sub { font-size: 0.72rem; color: var(--texto-suave); margin-top: 1px; }
+.alert-badge {
+  margin-left: auto; flex-shrink: 0;
+  font-size: 0.65rem; font-weight: 500;
+  padding: 2px 7px; border-radius: 100px;
+}
+.badge-red { background: #FEE2E2; color: #B91C1C; }
+.badge-amber { background: #FEF3C7; color: #92400E; }
+.badge-green { background: #DCFCE7; color: #166534; }
+
+.card-divider { height: 1px; background: var(--borda); margin: 12px 0; }
+
+.chat-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  max-width: 85%;
+}
+.chat-bubble.bot { background: var(--creme-escuro); color: var(--texto); }
+.chat-bubble.user { background: var(--verde); color: white; margin-left: auto; }
+.chat-label { font-size: 0.68rem; color: var(--texto-leve); margin-bottom: 4px; }
+
+/* STATS */
+.stats-bar {
+  background: var(--verde);
+  padding: 2rem;
+}
+.stats-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+.stat-val {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.03em;
+}
+.stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
+
+/* SECTIONS */
+section {
+  padding: 5rem 2rem;
+}
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--verde);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+h2 em { font-style: italic; font-weight: 300; color: var(--verde); }
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--texto-suave);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+/* FEATURES */
+.features-bg { background: white; }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.feat-card {
+  background: var(--creme);
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.feat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+.feat-icon {
+  width: 44px; height: 44px;
+  background: var(--verde-bg);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+}
+.feat-icon svg { width: 22px; height: 22px; stroke: var(--verde); fill: none; stroke-width: 1.5; }
+.feat-title { font-weight: 500; font-size: 1rem; margin-bottom: 0.5rem; color: var(--texto); }
+.feat-desc { font-size: 0.875rem; color: var(--texto-suave); line-height: 1.6; }
+
+/* PROBLEMA */
+.problema-bg { background: var(--creme-escuro); }
+.problema-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.problema-list { list-style: none; }
+.problema-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--borda);
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+}
+.problema-list li:last-child { border-bottom: none; }
+.problema-list li strong { color: var(--texto); font-weight: 500; }
+.prob-icon {
+  width: 24px; height: 24px; flex-shrink: 0;
+  background: #FEE2E2; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+}
+.prob-icon svg { width: 12px; height: 12px; stroke: #B91C1C; fill: none; stroke-width: 2.5; }
+.sol-icon {
+  width: 24px; height: 24px; flex-shrink: 0;
+  background: var(--verde-bg); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2px;
+}
+.sol-icon svg { width: 12px; height: 12px; stroke: var(--verde); fill: none; stroke-width: 2.5; }
+
+/* PLANOS */
+.planos-bg { background: white; }
+.planos-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.plano-card {
+  border: 1px solid var(--borda);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  background: var(--creme);
+  transition: transform 0.2s;
+}
+.plano-card:hover { transform: translateY(-3px); }
+.plano-card.destaque {
+  background: var(--verde);
+  border-color: var(--verde);
+  color: white;
+  transform: scale(1.03);
+}
+.plano-card.destaque:hover { transform: scale(1.03) translateY(-3px); }
+.plano-nome { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.06em; }
+.plano-card.destaque .plano-nome { opacity: 0.8; color: rgba(255,255,255,0.8); }
+.plano-preco {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+}
+.plano-preco span { font-size: 1rem; font-weight: 400; opacity: 0.6; }
+.plano-desc { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem; }
+.plano-features { list-style: none; }
+.plano-features li {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.875rem;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  opacity: 0.85;
+}
+.plano-card.destaque .plano-features li { border-color: rgba(255,255,255,0.12); opacity: 0.95; color: white; }
+.plano-features li:last-child { border-bottom: none; }
+.check { width: 16px; height: 16px; flex-shrink: 0; }
+.plano-btn {
+  display: block; width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 100px;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: all 0.2s;
+}
+.plano-card:not(.destaque) .plano-btn {
+  background: var(--verde);
+  color: white;
+}
+.plano-card:not(.destaque) .plano-btn:hover { background: #0A5840; }
+.plano-card.destaque .plano-btn {
+  background: white;
+  color: var(--verde);
+}
+.plano-card.destaque .plano-btn:hover { background: var(--creme); }
+
+/* DEPOIMENTOS */
+.depo-bg { background: var(--creme-escuro); }
+.depo-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.depo-card {
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+.depo-stars { color: #F59E0B; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.depo-text { font-size: 0.9rem; color: var(--texto-suave); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+.depo-autor { display: flex; align-items: center; gap: 10px; }
+.depo-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--verde-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 600; color: var(--verde);
+}
+.depo-nome { font-size: 0.85rem; font-weight: 500; color: var(--texto); }
+.depo-cargo { font-size: 0.75rem; color: var(--texto-leve); }
+
+/* FORM */
+.form-bg { background: var(--verde); }
+.form-inner {
+  max-width: 640px; margin: 0 auto;
+  text-align: center;
+}
+.form-inner h2 { color: white; }
+.form-inner .section-desc { color: rgba(255,255,255,0.75); margin: 0 auto 2.5rem; }
+.form-wrap {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+.form-title { font-weight: 500; margin-bottom: 1.25rem; color: var(--texto); font-size: 1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--texto-suave); margin-bottom: 6px; }
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--texto);
+  background: var(--creme);
+  transition: border-color 0.2s;
+  outline: none;
+  appearance: none;
+}
+.form-group input:focus, .form-group select:focus { border-color: var(--verde); background: white; }
+.form-submit {
+  width: 100%;
+  background: var(--verde);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+}
+.form-submit:hover { background: #0A5840; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+.form-disclaimer { font-size: 0.75rem; color: var(--texto-leve); margin-top: 1rem; }
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+.form-success .success-icon {
+  width: 56px; height: 56px;
+  background: var(--verde-bg);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+}
+.form-success p { color: var(--texto-suave); font-size: 0.9rem; margin-top: 0.5rem; }
+
+/* FOOTER */
+footer {
+  background: var(--texto);
+  color: rgba(255,255,255,0.6);
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+footer strong { color: white; font-family: 'Fraunces', serif; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-card-wrap { display: none; }
+  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .features-grid { grid-template-columns: 1fr; }
+  .problema-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .planos-grid { grid-template-columns: 1fr; }
+  .plano-card.destaque { transform: none; }
+  .depo-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  nav { padding: 0 1rem; }
+  section { padding: 3rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Vínculo<span>Certo</span></div>
+  <a href="#precadastro" class="nav-cta">Quero acesso antecipado</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Lançamento em breve</div>
+      <h1>Relações trabalhistas <em>sem complicação</em> para o empresário</h1>
+      <p class="hero-sub">Alertas antes do prazo vencer, documentos com um clique e consultor IA que responde em segundos. Tudo que o dono de negócio precisa para nunca mais levar multa trabalhista.</p>
+      <div class="hero-actions">
+        <a href="#precadastro" class="btn-primary">
+          Garantir acesso antecipado
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#como-funciona" class="btn-secondary">Ver como funciona ↓</a>
+      </div>
+    </div>
+    <div class="hero-card-wrap">
+      <div class="hero-card">
+        <div class="card-header">
+          <div class="card-logo-sm">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="card-title-sm">VínculoCerto</div>
+            <div class="card-sub-sm">Alertas de hoje</div>
+          </div>
+        </div>
+        <div class="alert-item red">
+          <div style="flex:1">
+            <div class="alert-text">Férias vencendo — Carlos M.</div>
+            <div class="alert-sub">18 dias de atraso. Risco de multa dobrada.</div>
+          </div>
+          <span class="alert-badge badge-red">Urgente</span>
+        </div>
+        <div class="alert-item amber">
+          <div style="flex:1">
+            <div class="alert-text">Contrato de experiência — Ana L.</div>
+            <div class="alert-sub">Vence em 7 dias. Decida agora.</div>
+          </div>
+          <span class="alert-badge badge-amber">Atenção</span>
+        </div>
+        <div class="alert-item green">
+          <div style="flex:1">
+            <div class="alert-text">FGTS de março recolhido</div>
+            <div class="alert-sub">R$ 1.240 — no prazo.</div>
+          </div>
+          <span class="alert-badge badge-green">Ok</span>
+        </div>
+        <div class="card-divider"></div>
+        <div class="chat-label">Consultor IA</div>
+        <div class="chat-bubble user">Posso demitir sem aviso prévio?</div>
+        <div class="chat-bubble bot">Só em caso de justa causa (art. 482 CLT). Sem justa causa, o aviso é obrigatório — trabalhado ou indenizado. Quer que eu gere a carta de demissão?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="reveal">
+      <div class="stat-val">2 mi</div>
+      <div class="stat-label">empresas com funcionários CLT no Brasil</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-val">70%</div>
+      <div class="stat-label">das PMEs não têm RH estruturado</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-val">R$ 44k</div>
+      <div class="stat-label">em multas por descumprimento trabalhista</div>
+    </div>
+    <div class="reveal">
+      <div class="stat-val">5 min</div>
+      <div class="stat-label">para resolver uma dúvida trabalhista conosco</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="problema-bg" id="como-funciona">
+  <div class="section-inner">
+    <div class="problema-grid">
+      <div class="reveal">
+        <div class="section-tag">O problema</div>
+        <h2>O dono resolve trabalhista no <em>feeling</em>. Isso custa caro.</h2>
+        <p class="section-desc">Sem RH, o empresário depende da memória, do contador ou do Google. E descobre o erro quando a multa já chegou.</p>
+        <ul class="problema-list">
+          <li>
+            <span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
+            <span><strong>Férias vencidas</strong> — o prazo passa despercebido e a multa dobra.</span>
+          </li>
+          <li>
+            <span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
+            <span><strong>Demissão errada</strong> — sem os documentos certos vira processo trabalhista.</span>
+          </li>
+          <li>
+            <span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
+            <span><strong>Horas extras acumuladas</strong> — sem controle vira passivo silencioso.</span>
+          </li>
+          <li>
+            <span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
+            <span><strong>Dúvida simples</strong> — espera dias pelo retorno do advogado ou contador.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="section-tag">A solução</div>
+        <h2>VínculoCerto <em>age antes</em> do problema aparecer.</h2>
+        <p class="section-desc">Um sistema que monitora, alerta e resolve — sem que você precise ser especialista em legislação.</p>
+        <ul class="problema-list">
+          <li>
+            <span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+            <span><strong>Radar de obrigações</strong> — alertas antes do prazo, não depois.</span>
+          </li>
+          <li>
+            <span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+            <span><strong>Checklist guiado</strong> — admissão e demissão passo a passo sem erro.</span>
+          </li>
+          <li>
+            <span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+            <span><strong>Dossiê do funcionário</strong> — histórico completo com valor legal.</span>
+          </li>
+          <li>
+            <span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+            <span><strong>Consultor IA</strong> — resposta trabalhista em segundos, 24h por dia.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-bg">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+      <div class="section-tag" style="justify-content:center;">Funcionalidades</div>
+      <h2>Tudo que o empresário precisa <em>em um só lugar</em></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg></div>
+        <div class="feat-title">Radar de obrigações</div>
+        <div class="feat-desc">Alertas automáticos por e-mail e WhatsApp antes de cada prazo trabalhista vencer. Nunca mais pague multa por esquecimento.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg></div>
+        <div class="feat-title">Consultor IA trabalhista</div>
+        <div class="feat-desc">Tire dúvidas sobre CLT, demissão, férias, banco de horas e muito mais. Respostas claras baseadas na legislação vigente.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z"/></svg></div>
+        <div class="feat-title">Gerador de documentos</div>
+        <div class="feat-desc">Advertência, banco de horas, contrato de experiência, NDA e muito mais. Gere, personalize e envie para assinatura digital.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div class="feat-title">Checklist de admissão e demissão</div>
+        <div class="feat-desc">Fluxo passo a passo para cada processo. Nenhum documento esquecido, nenhum prazo perdido. Histórico com validade legal.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg></div>
+        <div class="feat-title">Score de saúde trabalhista</div>
+        <div class="feat-desc">Veja em segundos se sua empresa está verde, amarela ou vermelha — e o que precisa resolver primeiro para ficar em dia.</div>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div class="feat-title">Calculadora de custo real</div>
+        <div class="feat-desc">Saiba o custo total de um funcionário antes de contratar — com FGTS, 13º, férias, INSS e provisões calculados automaticamente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="planos-bg">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+      <div class="section-tag" style="justify-content:center;">Planos</div>
+      <h2>Simples, transparente, <em>sem surpresa</em></h2>
+      <p class="section-desc" style="margin: 0 auto;">Cancele quando quiser. Sem fidelidade, sem taxa de setup.</p>
+    </div>
+    <div class="planos-grid">
+      <div class="plano-card reveal">
+        <div class="plano-nome">Gratuito</div>
+        <div class="plano-preco">R$ 0<span>/mês</span></div>
+        <div class="plano-desc">Para conhecer a plataforma</div>
+        <ul class="plano-features">
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>10 dúvidas por mês</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>3 documentos por mês</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Base de dúvidas completa</li>
+          <li style="opacity:0.4"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>Consultor IA</li>
+          <li style="opacity:0.4"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>Radar de obrigações</li>
+        </ul>
+        <a href="#precadastro" class="plano-btn">Começar grátis</a>
+      </div>
+      <div class="plano-card destaque reveal">
+        <div class="plano-nome">Essencial</div>
+        <div class="plano-preco">R$ 97<span>/mês</span></div>
+        <div class="plano-desc">Para PMEs com até 20 funcionários</div>
+        <ul class="plano-features">
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dúvidas ilimitadas</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>20 documentos por mês</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Consultor IA (50 perguntas)</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Radar de obrigações</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Score de saúde trabalhista</li>
+        </ul>
+        <a href="#precadastro" class="plano-btn">Garantir acesso antecipado</a>
+      </div>
+      <div class="plano-card reveal">
+        <div class="plano-nome">Pro</div>
+        <div class="plano-preco">R$ 197<span>/mês</span></div>
+        <div class="plano-desc">Para empresas com RH ativo</div>
+        <ul class="plano-features">
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Tudo do Essencial</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Documentos ilimitados</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>IA ilimitada</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Revisão por advogado</li>
+          <li><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dossiê completo do funcionário</li>
+        </ul>
+        <a href="#precadastro" class="plano-btn">Garantir acesso antecipado</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depo-bg">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+      <div class="section-tag" style="justify-content:center;">Quem vai usar</div>
+      <h2>Feito para quem <em>manda e não tem tempo</em> a perder</h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Sempre tive medo de demitir errado. Com o VínculoCerto tenho o checklist na mão e sei exatamente o que fazer em cada etapa."</p>
+        <div class="depo-autor">
+          <div class="depo-avatar">RC</div>
+          <div>
+            <div class="depo-nome">Roberto C.</div>
+            <div class="depo-cargo">Dono de restaurante, 12 funcionários</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"O alerta de férias vencendo me salvou de uma multa de R$ 4 mil. O sistema avisou com 15 dias de antecedência e resolvi na hora."</p>
+        <div class="depo-autor">
+          <div class="depo-avatar">ML</div>
+          <div>
+            <div class="depo-nome">Mariana L.</div>
+            <div class="depo-cargo">Proprietária de clínica odontológica</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Antes eu ligava pro contador pra qualquer dúvida e esperava dias. Agora uso o consultor IA e tenho a resposta em segundos, com a lei citada."</p>
+        <div class="depo-autor">
+          <div class="depo-avatar">FS</div>
+          <div>
+            <div class="depo-nome">Felipe S.</div>
+            <div class="depo-cargo">Empresário do varejo, 8 funcionários</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+<section class="form-bg" id="precadastro">
+  <div class="form-inner">
+    <div class="section-tag" style="justify-content:center; color:rgba(255,255,255,0.7);">Acesso antecipado</div>
+    <h2>Seja um dos <em style="color:rgba(255,255,255,0.6)">primeiros</em> a usar</h2>
+    <p class="section-desc">Os primeiros 50 cadastros ganham 3 meses no plano Essencial com 40% de desconto. Sem compromisso.</p>
+    
+    <div class="form-wrap">
+      <div id="form-content">
+        <p class="form-title">Garanta seu acesso antecipado</p>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nome completo</label>
+            <input type="text" id="nome" placeholder="Seu nome" required>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp</label>
+            <input type="tel" id="whatsapp" placeholder="(53) 99999-9999" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Segmento do negócio</label>
+            <select id="segmento">
+              <option value="">Selecione...</option>
+              <option value="Comércio / Varejo">Comércio / Varejo</option>
+              <option value="Alimentação / Restaurante">Alimentação / Restaurante</option>
+              <option value="Saúde / Clínica">Saúde / Clínica</option>
+              <option value="Serviços / Consultoria">Serviços / Consultoria</option>
+              <option value="Indústria / Produção">Indústria / Produção</option>
+              <option value="Beleza / Estética">Beleza / Estética</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Quantos funcionários?</label>
+            <select id="func">
+              <option value="">Selecione...</option>
+              <option value="1 a 5">1 a 5</option>
+              <option value="6 a 15">6 a 15</option>
+              <option value="16 a 30">16 a 30</option>
+              <option value="31 a 50">31 a 50</option>
+              <option value="Mais de 50">Mais de 50</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="form-submit" onclick="enviarForm()">
+          Quero acesso antecipado com desconto →
+        </button>
+
+        <p class="form-disclaimer">Seus dados são confidenciais e não serão compartilhados. Você receberá novidades sobre o lançamento.</p>
+      </div>
+
+      <div class="form-success" id="form-success" style="display: none;">
+        <div class="success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D6B4F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h3 style="color:#0D6B4F; font-family:'Fraunces',serif; font-size:1.3rem;">Cadastro confirmado!</h3>
+        <p>Você está na lista. Entraremos em contato pelo e-mail e WhatsApp informados assim que o acesso antecipado estiver disponível.</p>
+        <p style="margin-top:0.5rem; font-weight:500; color:#0D6B4F;">Fique de olho na caixa de entrada 👀</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>VínculoCerto</strong> — Relações trabalhistas sem complicação</p>
+  
+  <p style="margin-top:0.5rem;">
+    vinculocerto.com.br · 
+    <a href="https://wa.me/5553999726713?text=Olá! Vim pelo site e gostaria de saber mais sobre a Vínculo Certo." 
+       target="_blank" 
+       style="color: inherit; text-decoration: none; font-weight: bold;">
+       (53) 99972-6713
+    </a>
+  </p>
+
+  <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.5;">
+    © 2026 VínculoCerto. Todos os direitos reservados. As informações desta plataforma têm caráter orientativo e não substituem consultoria jurídica especializada.
+  </p>
+</footer>
+
+<script>
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// Form
+function enviarForm() {
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim(); // Novo campo
+
+    // Validação: agora verifica os três campos
+    if (!nome || !email || !whatsapp) {
+        alert('Por favor, preencha nome, e-mail e WhatsApp.');
+        return;
+    }
+
+    // Feedback visual para o usuário
+    const btn = document.querySelector("button[onclick='enviarForm()']");
+    if(btn) btn.innerText = "Enviando...";
+
+    // Enviar para o Formspree
+    fetch('https://formspree.io/f/mzdkvnrl', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            nome: nome,
+            email: email,
+            whatsapp: whatsapp // Dados enviados para o seu e-mail
+        })
+    }).then(response => {
+        if (response.ok) {
+            alert('Cadastro realizado com sucesso! Entraremos em contato.');
+            // Limpa os campos após o sucesso
+            document.getElementById('nome').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('whatsapp').value = '';
+        } else {
+            alert('Ops! Houve um erro ao enviar. Tente novamente.');
+        }
+    }).catch(error => {
+        alert('Erro na rede. Verifique sua conexão.');
+    }).finally(() => {
+        if(btn) btn.innerText = "Quero meu acesso";
+    });
+}
+
+// Smooth scroll for anchors
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
