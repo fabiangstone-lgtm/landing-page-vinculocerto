@@ -20,489 +20,130 @@
   --texto-leve: #8A8A7E;
   --borda: #E2DDD4;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--creme);
-  color: var(--texto);
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(250,248,243,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--borda);
-  padding: 0 2rem;
-  height: 64px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--verde);
-  letter-spacing: -0.02em;
-}
+body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--texto); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,248,243,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--borda); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 600; color: var(--verde); letter-spacing: -0.02em; }
 .nav-logo span { color: var(--texto); }
-.nav-cta {
-  background: var(--verde);
-  color: white;
-  border: none;
-  padding: 0.5rem 1.25rem;
-  border-radius: 100px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.15s;
-}
+.nav-cta { background: var(--verde); color: white; border: none; padding: 0.5rem 1.25rem; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s; }
 .nav-cta:hover { background: #0A5840; transform: translateY(-1px); }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex; align-items: center;
-  padding: 100px 2rem 4rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0; z-index: 0;
-  background: radial-gradient(ellipse 80% 60% at 70% 40%, #D4EDE4 0%, transparent 60%),
-              radial-gradient(ellipse 40% 40% at 10% 80%, #E8F0D8 0%, transparent 50%);
-}
-.hero-grid {
-  position: absolute; inset: 0; z-index: 0; opacity: 0.04;
-  background-image: linear-gradient(var(--texto) 1px, transparent 1px),
-                    linear-gradient(90deg, var(--texto) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.hero-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center;
-  position: relative; z-index: 1;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--verde-bg);
-  border: 1px solid var(--verde-borda);
-  color: var(--verde);
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 4px 12px;
-  border-radius: 100px;
-  margin-bottom: 1.5rem;
-  animation: fadeUp 0.6s ease both;
-}
-.hero-tag::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--verde-claro);
-}
-h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--texto);
-  margin-bottom: 1.5rem;
-  animation: fadeUp 0.6s 0.1s ease both;
-}
-h1 em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--verde);
-}
-.hero-sub {
-  font-size: 1.05rem;
-  color: var(--texto-suave);
-  max-width: 480px;
-  margin-bottom: 2.5rem;
-  line-height: 1.7;
-  animation: fadeUp 0.6s 0.2s ease both;
-}
-.hero-actions {
-  display: flex; gap: 1rem; align-items: center;
-  animation: fadeUp 0.6s 0.3s ease both;
-  flex-wrap: wrap;
-}
-.btn-primary {
-  background: var(--verde);
-  color: white;
-  border: none;
-  padding: 0.85rem 2rem;
-  border-radius: 100px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s;
-  display: inline-flex; align-items: center; gap: 8px;
-}
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 2rem 4rem; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, #D4EDE4 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 10% 80%, #E8F0D8 0%, transparent 50%); }
+.hero-grid { position: absolute; inset: 0; z-index: 0; opacity: 0.04; background-image: linear-gradient(var(--texto) 1px, transparent 1px), linear-gradient(90deg, var(--texto) 1px, transparent 1px); background-size: 60px 60px; }
+.hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+.hero-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--verde-bg); border: 1px solid var(--verde-borda); color: var(--verde); font-size: 0.8rem; font-weight: 500; padding: 4px 12px; border-radius: 100px; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+.hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--verde-claro); }
+h1 { font-family: 'Fraunces', serif; font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; color: var(--texto); margin-bottom: 1.5rem; animation: fadeUp 0.6s 0.1s ease both; }
+h1 em { font-style: italic; font-weight: 300; color: var(--verde); }
+.hero-sub { font-size: 1.05rem; color: var(--texto-suave); max-width: 480px; margin-bottom: 2.5rem; line-height: 1.7; animation: fadeUp 0.6s 0.2s ease both; }
+.hero-actions { display: flex; gap: 1rem; align-items: center; animation: fadeUp 0.6s 0.3s ease both; flex-wrap: wrap; }
+.btn-primary { background: var(--verde); color: white; border: none; padding: 0.85rem 2rem; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; }
 .btn-primary:hover { background: #0A5840; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,107,79,0.25); }
-.btn-secondary {
-  color: var(--texto-suave);
-  font-size: 0.9rem;
-  text-decoration: none;
-  display: flex; align-items: center; gap: 6px;
-}
+.btn-secondary { color: var(--texto-suave); font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 6px; }
 .btn-secondary:hover { color: var(--texto); }
-
-/* HERO CARD */
-.hero-card-wrap {
-  animation: fadeUp 0.6s 0.2s ease both;
-}
-.hero-card {
-  background: white;
-  border: 1px solid var(--borda);
-  border-radius: 20px;
-  padding: 1.5rem;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
-}
-.card-header {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 1.25rem;
-}
-.card-logo-sm {
-  width: 36px; height: 36px;
-  background: var(--verde);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-}
+.hero-card-wrap { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-card { background: white; border: 1px solid var(--borda); border-radius: 20px; padding: 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04); }
+.card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+.card-logo-sm { width: 36px; height: 36px; background: var(--verde); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
 .card-logo-sm svg { width: 18px; height: 18px; fill: white; }
 .card-title-sm { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 600; color: var(--verde); }
 .card-sub-sm { font-size: 0.75rem; color: var(--texto-leve); }
-
-.alert-item {
-  display: flex; align-items: flex-start; gap: 10px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  border-left: 3px solid;
-}
+.alert-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 10px; margin-bottom: 8px; border-left: 3px solid; }
 .alert-item.red { background: #FEF2F2; border-color: #E24B4A; }
 .alert-item.amber { background: #FFFBEB; border-color: #F59E0B; }
 .alert-item.green { background: #F0FDF4; border-color: #22C55E; }
 .alert-text { font-size: 0.8rem; font-weight: 500; color: var(--texto); }
 .alert-sub { font-size: 0.72rem; color: var(--texto-suave); margin-top: 1px; }
-.alert-badge {
-  margin-left: auto; flex-shrink: 0;
-  font-size: 0.65rem; font-weight: 500;
-  padding: 2px 7px; border-radius: 100px;
-}
+.alert-badge { margin-left: auto; flex-shrink: 0; font-size: 0.65rem; font-weight: 500; padding: 2px 7px; border-radius: 100px; }
 .badge-red { background: #FEE2E2; color: #B91C1C; }
 .badge-amber { background: #FEF3C7; color: #92400E; }
 .badge-green { background: #DCFCE7; color: #166534; }
-
 .card-divider { height: 1px; background: var(--borda); margin: 12px 0; }
-
-.chat-bubble {
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  margin-bottom: 8px;
-  max-width: 85%;
-}
+.chat-bubble { padding: 10px 14px; border-radius: 12px; font-size: 0.8rem; line-height: 1.5; margin-bottom: 8px; max-width: 85%; }
 .chat-bubble.bot { background: var(--creme-escuro); color: var(--texto); }
 .chat-bubble.user { background: var(--verde); color: white; margin-left: auto; }
 .chat-label { font-size: 0.68rem; color: var(--texto-leve); margin-bottom: 4px; }
-
-/* STATS */
-.stats-bar {
-  background: var(--verde);
-  padding: 2rem;
-}
-.stats-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  text-align: center;
-}
-.stat-val {
-  font-family: 'Fraunces', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: -0.03em;
-}
+.stats-bar { background: var(--verde); padding: 2rem; }
+.stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+.stat-val { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 700; color: white; letter-spacing: -0.03em; }
 .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
-
-/* SECTIONS */
-section {
-  padding: 5rem 2rem;
-}
+section { padding: 5rem 2rem; }
 .section-inner { max-width: 1100px; margin: 0 auto; }
-.section-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.75rem; font-weight: 500;
-  color: var(--verde);
-  text-transform: uppercase; letter-spacing: 0.08em;
-  margin-bottom: 1rem;
-}
-h2 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 1rem;
-}
+.section-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 500; color: var(--verde); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+h2 { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 1rem; }
 h2 em { font-style: italic; font-weight: 300; color: var(--verde); }
-.section-desc {
-  font-size: 1.05rem;
-  color: var(--texto-suave);
-  max-width: 520px;
-  line-height: 1.7;
-  margin-bottom: 3rem;
-}
-
-/* FEATURES */
+.section-desc { font-size: 1.05rem; color: var(--texto-suave); max-width: 520px; line-height: 1.7; margin-bottom: 3rem; }
 .features-bg { background: white; }
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.feat-card {
-  background: var(--creme);
-  border: 1px solid var(--borda);
-  border-radius: 16px;
-  padding: 1.5rem;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.feat-card { background: var(--creme); border: 1px solid var(--borda); border-radius: 16px; padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
 .feat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
-.feat-icon {
-  width: 44px; height: 44px;
-  background: var(--verde-bg);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1rem;
-}
+.feat-icon { width: 44px; height: 44px; background: var(--verde-bg); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
 .feat-icon svg { width: 22px; height: 22px; stroke: var(--verde); fill: none; stroke-width: 1.5; }
 .feat-title { font-weight: 500; font-size: 1rem; margin-bottom: 0.5rem; color: var(--texto); }
 .feat-desc { font-size: 0.875rem; color: var(--texto-suave); line-height: 1.6; }
-
-/* PROBLEMA */
 .problema-bg { background: var(--creme-escuro); }
-.problema-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: center;
-}
+.problema-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .problema-list { list-style: none; }
-.problema-list li {
-  display: flex; align-items: flex-start; gap: 12px;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--borda);
-  font-size: 0.95rem;
-  color: var(--texto-suave);
-}
+.problema-list li { display: flex; align-items: flex-start; gap: 12px; padding: 1rem 0; border-bottom: 1px solid var(--borda); font-size: 0.95rem; color: var(--texto-suave); }
 .problema-list li:last-child { border-bottom: none; }
 .problema-list li strong { color: var(--texto); font-weight: 500; }
-.prob-icon {
-  width: 24px; height: 24px; flex-shrink: 0;
-  background: #FEE2E2; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 2px;
-}
+.prob-icon { width: 24px; height: 24px; flex-shrink: 0; background: #FEE2E2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
 .prob-icon svg { width: 12px; height: 12px; stroke: #B91C1C; fill: none; stroke-width: 2.5; }
-.sol-icon {
-  width: 24px; height: 24px; flex-shrink: 0;
-  background: var(--verde-bg); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 2px;
-}
+.sol-icon { width: 24px; height: 24px; flex-shrink: 0; background: var(--verde-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
 .sol-icon svg { width: 12px; height: 12px; stroke: var(--verde); fill: none; stroke-width: 2.5; }
-
-/* PLANOS */
 .planos-bg { background: white; }
-.planos-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.plano-card {
-  border: 1px solid var(--borda);
-  border-radius: 20px;
-  padding: 2rem 1.5rem;
-  background: var(--creme);
-  transition: transform 0.2s;
-}
+.planos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.plano-card { border: 1px solid var(--borda); border-radius: 20px; padding: 2rem 1.5rem; background: var(--creme); transition: transform 0.2s; }
 .plano-card:hover { transform: translateY(-3px); }
-.plano-card.destaque {
-  background: var(--verde);
-  border-color: var(--verde);
-  color: white;
-  transform: scale(1.03);
-}
+.plano-card.destaque { background: var(--verde); border-color: var(--verde); color: white; transform: scale(1.03); }
 .plano-card.destaque:hover { transform: scale(1.03) translateY(-3px); }
 .plano-nome { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.06em; }
 .plano-card.destaque .plano-nome { opacity: 0.8; color: rgba(255,255,255,0.8); }
-.plano-preco {
-  font-family: 'Fraunces', serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.25rem;
-}
+.plano-preco { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.25rem; }
 .plano-preco span { font-size: 1rem; font-weight: 400; opacity: 0.6; }
 .plano-desc { font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem; }
 .plano-features { list-style: none; }
-.plano-features li {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 0.875rem;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  opacity: 0.85;
-}
+.plano-features li { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.06); opacity: 0.85; }
 .plano-card.destaque .plano-features li { border-color: rgba(255,255,255,0.12); opacity: 0.95; color: white; }
 .plano-features li:last-child { border-bottom: none; }
 .check { width: 16px; height: 16px; flex-shrink: 0; }
-.plano-btn {
-  display: block; width: 100%;
-  margin-top: 1.5rem;
-  padding: 0.75rem;
-  border-radius: 100px;
-  text-align: center;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-  transition: all 0.2s;
-}
-.plano-card:not(.destaque) .plano-btn {
-  background: var(--verde);
-  color: white;
-}
+.plano-btn { display: block; width: 100%; margin-top: 1.5rem; padding: 0.75rem; border-radius: 100px; text-align: center; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-decoration: none; border: none; transition: all 0.2s; }
+.plano-card:not(.destaque) .plano-btn { background: var(--verde); color: white; }
 .plano-card:not(.destaque) .plano-btn:hover { background: #0A5840; }
-.plano-card.destaque .plano-btn {
-  background: white;
-  color: var(--verde);
-}
+.plano-card.destaque .plano-btn { background: white; color: var(--verde); }
 .plano-card.destaque .plano-btn:hover { background: var(--creme); }
-
-/* DEPOIMENTOS */
 .depo-bg { background: var(--creme-escuro); }
-.depo-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.depo-card {
-  background: white;
-  border: 1px solid var(--borda);
-  border-radius: 16px;
-  padding: 1.5rem;
-}
+.depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.depo-card { background: white; border: 1px solid var(--borda); border-radius: 16px; padding: 1.5rem; }
 .depo-stars { color: #F59E0B; font-size: 0.9rem; margin-bottom: 0.75rem; }
 .depo-text { font-size: 0.9rem; color: var(--texto-suave); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
 .depo-autor { display: flex; align-items: center; gap: 10px; }
-.depo-avatar {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--verde-bg);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.8rem; font-weight: 600; color: var(--verde);
-}
+.depo-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--verde-bg); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; color: var(--verde); }
 .depo-nome { font-size: 0.85rem; font-weight: 500; color: var(--texto); }
 .depo-cargo { font-size: 0.75rem; color: var(--texto-leve); }
-
-/* FORM */
 .form-bg { background: var(--verde); }
-.form-inner {
-  max-width: 640px; margin: 0 auto;
-  text-align: center;
-}
+.form-inner { max-width: 640px; margin: 0 auto; text-align: center; }
 .form-inner h2 { color: white; }
 .form-inner .section-desc { color: rgba(255,255,255,0.75); margin: 0 auto 2.5rem; }
-.form-wrap {
-  background: white;
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-}
+.form-wrap { background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
 .form-title { font-weight: 500; margin-bottom: 1.25rem; color: var(--texto); font-size: 1rem; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
 .form-group { margin-bottom: 1rem; }
 .form-group label { display: block; font-size: 0.8rem; font-weight: 500; color: var(--texto-suave); margin-bottom: 6px; }
-.form-group input, .form-group select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--borda);
-  border-radius: 10px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  color: var(--texto);
-  background: var(--creme);
-  transition: border-color 0.2s;
-  outline: none;
-  appearance: none;
-}
+.form-group input, .form-group select { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--borda); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; color: var(--texto); background: var(--creme); transition: border-color 0.2s; outline: none; appearance: none; }
 .form-group input:focus, .form-group select:focus { border-color: var(--verde); background: white; }
-.form-submit {
-  width: 100%;
-  background: var(--verde);
-  color: white;
-  border: none;
-  padding: 0.9rem;
-  border-radius: 100px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 0.5rem;
-}
+.form-submit { width: 100%; background: var(--verde); color: white; border: none; padding: 0.9rem; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.2s; margin-top: 0.5rem; }
 .form-submit:hover { background: #0A5840; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
 .form-disclaimer { font-size: 0.75rem; color: var(--texto-leve); margin-top: 1rem; }
-.form-success {
-  display: none;
-  text-align: center;
-  padding: 2rem;
-}
-.form-success .success-icon {
-  width: 56px; height: 56px;
-  background: var(--verde-bg);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1rem;
-}
+.form-success { display: none; text-align: center; padding: 2rem; }
+.form-success .success-icon { width: 56px; height: 56px; background: var(--verde-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
 .form-success p { color: var(--texto-suave); font-size: 0.9rem; margin-top: 0.5rem; }
-
-/* FOOTER */
-footer {
-  background: var(--texto);
-  color: rgba(255,255,255,0.6);
-  padding: 2rem;
-  text-align: center;
-  font-size: 0.85rem;
-}
+footer { background: var(--texto); color: rgba(255,255,255,0.6); padding: 2rem; text-align: center; font-size: 0.85rem; }
 footer strong { color: white; font-family: 'Fraunces', serif; }
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.reveal {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .hero-card-wrap { display: none; }
@@ -520,13 +161,11 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Vínculo<span>Certo</span></div>
   <a href="#precadastro" class="nav-cta">Quero acesso antecipado</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -555,24 +194,15 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
           </div>
         </div>
         <div class="alert-item red">
-          <div style="flex:1">
-            <div class="alert-text">Férias vencendo — Carlos M.</div>
-            <div class="alert-sub">18 dias de atraso. Risco de multa dobrada.</div>
-          </div>
+          <div style="flex:1"><div class="alert-text">Férias vencendo — Carlos M.</div><div class="alert-sub">18 dias de atraso. Risco de multa dobrada.</div></div>
           <span class="alert-badge badge-red">Urgente</span>
         </div>
         <div class="alert-item amber">
-          <div style="flex:1">
-            <div class="alert-text">Contrato de experiência — Ana L.</div>
-            <div class="alert-sub">Vence em 7 dias. Decida agora.</div>
-          </div>
+          <div style="flex:1"><div class="alert-text">Contrato de experiência — Ana L.</div><div class="alert-sub">Vence em 7 dias. Decida agora.</div></div>
           <span class="alert-badge badge-amber">Atenção</span>
         </div>
         <div class="alert-item green">
-          <div style="flex:1">
-            <div class="alert-text">FGTS de março recolhido</div>
-            <div class="alert-sub">R$ 1.240 — no prazo.</div>
-          </div>
+          <div style="flex:1"><div class="alert-text">FGTS de março recolhido</div><div class="alert-sub">R$ 1.240 — no prazo.</div></div>
           <span class="alert-badge badge-green">Ok</span>
         </div>
         <div class="card-divider"></div>
@@ -584,29 +214,15 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="reveal">
-      <div class="stat-val">+3 mi</div>
-      <div class="stat-label">empresas com funcionários CLT no Brasil</div>
-    </div>
-    <div class="reveal">
-      <div class="stat-val">70%</div>
-      <div class="stat-label">das PMEs não têm RH estruturado</div>
-    </div>
-    <div class="reveal">
-      <div class="stat-val">R$ 44k</div>
-      <div class="stat-label">ticket médio de uma condenação trabalhista</div>
-    </div>
-    <div class="reveal">
-      <div class="stat-val">5 min</div>
-      <div class="stat-label">tempo médio para sanar dúvidas na plataforma</div>
-    </div>
+    <div class="reveal"><div class="stat-val">+3 mi</div><div class="stat-label">empresas com funcionários CLT no Brasil</div></div>
+    <div class="reveal"><div class="stat-val">70%</div><div class="stat-label">das PMEs não têm RH estruturado</div></div>
+    <div class="reveal"><div class="stat-val">R$ 44k</div><div class="stat-label">ticket médio de uma condenação trabalhista</div></div>
+    <div class="reveal"><div class="stat-val">5 min</div><div class="stat-label">tempo médio para sanar dúvidas na plataforma</div></div>
   </div>
 </div>
 
-<!-- PROBLEMA -->
 <section class="problema-bg" id="como-funciona">
   <div class="section-inner">
     <div class="problema-grid">
@@ -615,22 +231,10 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
         <h2>O dono resolve trabalhista no <em>feeling</em>. Isso custa caro.</h2>
         <p class="section-desc">Sem RH, o empresário depende da memória, do contador ou do Google. E descobre o erro quando a multa já chegou.</p>
         <ul class="problema-list">
-          <li>
-            <span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
-            <span><strong>Férias vencidas</strong> — o prazo passa despercebido e a multa dobra.</span>
-          </li>
-          <li>
-            <span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
-            <span><strong>Demissão errada</strong> — sem os documentos certos vira processo trabalhista.</span>
-          </li>
-          <li>
-            <span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
-            <span><strong>Horas extras acumuladas</strong> — sem controle vira passivo silencioso.</span>
-          </li>
-          <li>
-            <span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span>
-            <span><strong>Dúvida simples</strong> — espera dias pelo retorno do advogado ou contador.</span>
-          </li>
+          <li><span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span><span><strong>Férias vencidas</strong> — o prazo passa despercebido e a multa dobra.</span></li>
+          <li><span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span><span><strong>Demissão errada</strong> — sem os documentos certos vira processo trabalhista.</span></li>
+          <li><span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span><span><strong>Horas extras acumuladas</strong> — sem controle vira passivo silencioso.</span></li>
+          <li><span class="prob-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg></span><span><strong>Dúvida simples</strong> — espera dias pelo retorno do advogado ou contador.</span></li>
         </ul>
       </div>
       <div class="reveal">
@@ -638,29 +242,16 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
         <h2>VínculoCerto <em>age antes</em> do problema aparecer.</h2>
         <p class="section-desc">Um sistema que monitora, alerta e resolve — sem que você precise ser especialista em legislação.</p>
         <ul class="problema-list">
-          <li>
-            <span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span><strong>Radar de obrigações</strong> — alertas antes do prazo, não depois.</span>
-          </li>
-          <li>
-            <span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span><strong>Checklist guiado</strong> — admissão e demissão passo a passo sem erro.</span>
-          </li>
-          <li>
-            <span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span><strong>Dossiê do funcionário</strong> — histórico completo com valor legal.</span>
-          </li>
-          <li>
-            <span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-            <span><strong>Consultor IA</strong> — resposta trabalhista em segundos, 24h por dia.</span>
-          </li>
+          <li><span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span><strong>Radar de obrigações</strong> — alertas antes do prazo, não depois.</span></li>
+          <li><span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span><strong>Checklist guiado</strong> — admissão e demissão passo a passo sem erro.</span></li>
+          <li><span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span><strong>Dossiê do funcionário</strong> — histórico completo com valor legal.</span></li>
+          <li><span class="sol-icon"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span><span><strong>Consultor IA</strong> — resposta trabalhista em segundos, 24h por dia.</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
 <section class="features-bg">
   <div class="section-inner">
     <div class="reveal" style="text-align:center; margin-bottom:3rem;">
@@ -702,7 +293,6 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
   </div>
 </section>
 
-<!-- PLANOS -->
 <section class="planos-bg">
   <div class="section-inner">
     <div class="reveal" style="text-align:center; margin-bottom:3rem;">
@@ -754,7 +344,83 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
+<!-- CALCULADORA -->
+<section style="background: var(--creme-escuro); padding: 5rem 2rem;">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+      <div class="section-tag" style="justify-content:center;">Calculadora gratuita</div>
+      <h2>Quanto custa <em>de verdade</em> ter um funcionário?</h2>
+      <p class="section-desc" style="margin: 0 auto;">Digite o salário e veja o custo real — com todos os encargos que o empresário esquece de calcular.</p>
+    </div>
+    <div class="reveal" style="max-width: 760px; margin: 0 auto;">
+      <div style="background: white; border-radius: 20px; border: 1px solid var(--borda); padding: 2rem; box-shadow: 0 8px 32px rgba(0,0,0,0.06);">
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display:block; font-size:0.85rem; font-weight:500; color:var(--texto-suave); margin-bottom:8px;">Salário bruto do funcionário</label>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <div style="position:relative; flex:1; min-width:200px;">
+              <span style="position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--texto-suave); font-size:0.95rem;">R$</span>
+              <input type="number" id="salario" value="2000" min="0" max="50000" step="100"
+                style="width:100%; padding:0.75rem 1rem 0.75rem 2.5rem; border:1px solid var(--borda); border-radius:10px; font-family:'DM Sans',sans-serif; font-size:1.1rem; font-weight:500; color:var(--texto); background:var(--creme); outline:none;"
+                oninput="calcularCusto()" onfocus="this.style.borderColor='var(--verde)'" onblur="this.style.borderColor='var(--borda)'">
+            </div>
+            <input type="range" id="slider" min="1320" max="20000" value="2000" step="100"
+              style="flex:1; min-width:160px; accent-color:var(--verde);"
+              oninput="document.getElementById('salario').value=this.value; calcularCusto()">
+          </div>
+        </div>
+        <div style="background:var(--verde); border-radius:14px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); margin-bottom:4px;">Custo total mensal para a empresa</div>
+            <div style="font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:white; letter-spacing:-0.02em;" id="custo-total">R$ 2.682</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:0.8rem; color:rgba(255,255,255,0.7); margin-bottom:4px;">Custo anual estimado</div>
+            <div style="font-size:1.3rem; font-weight:600; color:white;" id="custo-anual">R$ 34.266</div>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin-bottom:1.5rem;">
+          <div style="background:var(--creme); border-radius:10px; padding:12px 14px; border:1px solid var(--borda);">
+            <div style="font-size:0.75rem; color:var(--texto-leve); margin-bottom:4px;">Salário bruto</div>
+            <div style="font-size:1rem; font-weight:500; color:var(--texto);" id="v-salario">R$ 2.000</div>
+          </div>
+          <div style="background:var(--creme); border-radius:10px; padding:12px 14px; border:1px solid var(--borda);">
+            <div style="font-size:0.75rem; color:var(--texto-leve); margin-bottom:4px;">INSS patronal (20%)</div>
+            <div style="font-size:1rem; font-weight:500; color:var(--texto);" id="v-inss">R$ 400</div>
+          </div>
+          <div style="background:var(--creme); border-radius:10px; padding:12px 14px; border:1px solid var(--borda);">
+            <div style="font-size:0.75rem; color:var(--texto-leve); margin-bottom:4px;">FGTS (8%)</div>
+            <div style="font-size:1rem; font-weight:500; color:var(--texto);" id="v-fgts">R$ 160</div>
+          </div>
+          <div style="background:var(--creme); border-radius:10px; padding:12px 14px; border:1px solid var(--borda);">
+            <div style="font-size:0.75rem; color:var(--texto-leve); margin-bottom:4px;">Provisão 13º salário</div>
+            <div style="font-size:1rem; font-weight:500; color:var(--texto);" id="v-decimo">R$ 167</div>
+          </div>
+          <div style="background:var(--creme); border-radius:10px; padding:12px 14px; border:1px solid var(--borda);">
+            <div style="font-size:0.75rem; color:var(--texto-leve); margin-bottom:4px;">Provisão férias + 1/3</div>
+            <div style="font-size:1rem; font-weight:500; color:var(--texto);" id="v-ferias">R$ 222</div>
+          </div>
+          <div style="background:var(--creme); border-radius:10px; padding:12px 14px; border:1px solid var(--borda);">
+            <div style="font-size:0.75rem; color:var(--texto-leve); margin-bottom:4px;">Outros encargos (RAT+terç.)</div>
+            <div style="font-size:1rem; font-weight:500; color:var(--texto);" id="v-outros">R$ 60</div>
+          </div>
+        </div>
+        <div style="background:#FEF3C7; border:1px solid #FCD34D; border-radius:10px; padding:12px 16px; display:flex; align-items:flex-start; gap:10px; margin-bottom:1.5rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#92400E" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          <p style="font-size:0.82rem; color:#92400E; line-height:1.6;">
+            <strong>Atenção:</strong> muitos empresários calculam só o salário e se surpreendem com a folha. O custo real é em média <strong id="pct-acima">34%</strong> acima do salário combinado. Use o VínculoCerto para manter tudo sob controle.
+          </p>
+        </div>
+        <a href="#precadastro" style="display:block; width:100%; background:var(--verde); color:white; text-align:center; padding:0.85rem; border-radius:100px; text-decoration:none; font-weight:500; font-size:0.95rem; transition:background 0.2s;" onmouseover="this.style.background='#0A5840'" onmouseout="this.style.background='var(--verde)'">
+          Quero controlar meus custos trabalhistas →
+        </a>
+        <p style="font-size:0.72rem; color:var(--texto-leve); text-align:center; margin-top:10px;">
+          Cálculo estimado com base na legislação vigente. Valores podem variar conforme setor, convenção coletiva e regime tributário.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="depo-bg">
   <div class="section-inner">
     <div class="reveal" style="text-align:center; margin-bottom:3rem;">
@@ -765,67 +431,35 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
       <div class="depo-card reveal">
         <div class="depo-stars">★★★★★</div>
         <p class="depo-text">"Sempre tive medo de demitir errado. Com o VínculoCerto tenho o checklist na mão e sei exatamente o que fazer em cada etapa."</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">RC</div>
-          <div>
-            <div class="depo-nome">Roberto C.</div>
-            <div class="depo-cargo">Dono de restaurante, 12 funcionários</div>
-          </div>
-        </div>
+        <div class="depo-autor"><div class="depo-avatar">RC</div><div><div class="depo-nome">Roberto C.</div><div class="depo-cargo">Dono de restaurante, 12 funcionários</div></div></div>
       </div>
       <div class="depo-card reveal">
         <div class="depo-stars">★★★★★</div>
         <p class="depo-text">"O alerta de férias vencendo me salvou de uma multa de R$ 4 mil. O sistema avisou com 15 dias de antecedência e resolvi na hora."</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">ML</div>
-          <div>
-            <div class="depo-nome">Mariana L.</div>
-            <div class="depo-cargo">Proprietária de clínica odontológica</div>
-          </div>
-        </div>
+        <div class="depo-autor"><div class="depo-avatar">ML</div><div><div class="depo-nome">Mariana L.</div><div class="depo-cargo">Proprietária de clínica odontológica</div></div></div>
       </div>
       <div class="depo-card reveal">
         <div class="depo-stars">★★★★★</div>
         <p class="depo-text">"Antes eu ligava pro contador pra qualquer dúvida e esperava dias. Agora uso o consultor IA e tenho a resposta em segundos, com a lei citada."</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">FS</div>
-          <div>
-            <div class="depo-nome">Felipe S.</div>
-            <div class="depo-cargo">Empresário do varejo, 8 funcionários</div>
-          </div>
-        </div>
+        <div class="depo-autor"><div class="depo-avatar">FS</div><div><div class="depo-nome">Felipe S.</div><div class="depo-cargo">Empresário do varejo, 8 funcionários</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
 <section class="form-bg" id="precadastro">
   <div class="form-inner">
     <div class="section-tag" style="justify-content:center; color:rgba(255,255,255,0.7);">Acesso antecipado</div>
     <h2>Seja um dos <em style="color:rgba(255,255,255,0.6)">primeiros</em> a usar</h2>
     <p class="section-desc">Os primeiros 50 cadastros ganham 3 meses no plano Essencial com 40% de desconto. Sem compromisso.</p>
-    
     <div class="form-wrap">
       <div id="form-content">
         <p class="form-title">Garanta seu acesso antecipado</p>
-        
         <div class="form-row">
-          <div class="form-group">
-            <label>Nome completo</label>
-            <input type="text" id="nome" placeholder="Seu nome" required>
-          </div>
-          <div class="form-group">
-            <label>WhatsApp</label>
-            <input type="tel" id="whatsapp" placeholder="(53) 99999-9999" required>
-          </div>
+          <div class="form-group"><label>Nome completo</label><input type="text" id="nome" placeholder="Seu nome" required></div>
+          <div class="form-group"><label>WhatsApp</label><input type="tel" id="whatsapp" placeholder="(53) 99999-9999" required></div>
         </div>
-
-        <div class="form-group">
-          <label>E-mail</label>
-          <input type="email" id="email" placeholder="seu@email.com" required>
-        </div>
-
+        <div class="form-group"><label>E-mail</label><input type="email" id="email" placeholder="seu@email.com" required></div>
         <div class="form-row">
           <div class="form-group">
             <label>Segmento do negócio</label>
@@ -852,18 +486,11 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
             </select>
           </div>
         </div>
-
-        <button class="form-submit" onclick="enviarForm()">
-          Quero acesso antecipado com desconto →
-        </button>
-
+        <button class="form-submit" onclick="enviarForm()">Quero acesso antecipado com desconto →</button>
         <p class="form-disclaimer">Seus dados são confidenciais e não serão compartilhados. Você receberá novidades sobre o lançamento.</p>
       </div>
-
       <div class="form-success" id="form-success" style="display: none;">
-        <div class="success-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D6B4F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        </div>
+        <div class="success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0D6B4F" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
         <h3 style="color:#0D6B4F; font-family:'Fraunces',serif; font-size:1.3rem;">Cadastro confirmado!</h3>
         <p>Você está na lista. Entraremos em contato pelo e-mail e WhatsApp informados assim que o acesso antecipado estiver disponível.</p>
         <p style="margin-top:0.5rem; font-weight:500; color:#0D6B4F;">Fique de olho na caixa de entrada 👀</p>
@@ -874,23 +501,14 @@ footer strong { color: white; font-family: 'Fraunces', serif; }
 
 <footer>
   <p><strong>VínculoCerto</strong> — Relações trabalhistas sem complicação</p>
-  
   <p style="margin-top:0.5rem;">
     vinculocerto.com.br · 
-    <a href="https://wa.me/5553999726713?text=Olá! Vim pelo site e gostaria de saber mais sobre a Vínculo Certo." 
-       target="_blank" 
-       style="color: inherit; text-decoration: none; font-weight: bold;">
-       (53) 99972-6713
-    </a>
+    <a href="https://wa.me/5553999726713?text=Olá! Vim pelo site e gostaria de saber mais sobre a Vínculo Certo." target="_blank" style="color: inherit; text-decoration: none; font-weight: bold;">(53) 99972-6713</a>
   </p>
-
-  <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.5;">
-    © 2026 VínculoCerto. Todos os direitos reservados. As informações desta plataforma têm caráter orientativo e não substituem consultoria jurídica especializada.
-  </p>
+  <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.5;">© 2026 VínculoCerto. Todos os direitos reservados. As informações desta plataforma têm caráter orientativo e não substituem consultoria jurídica especializada.</p>
 </footer>
 
 <script>
-// Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -902,52 +520,57 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
 
-// Form
+function calcularCusto() {
+  const salario = parseFloat(document.getElementById('salario').value) || 0;
+  document.getElementById('slider').value = Math.min(salario, 20000);
+  const inss = salario * 0.20;
+  const fgts = salario * 0.08;
+  const decimo = salario / 12;
+  const ferias = (salario / 12) * (4/3);
+  const rat = salario * 0.03;
+  const total = salario + inss + fgts + decimo + ferias + rat;
+  const anual = total * 12 + salario;
+  const pct = Math.round(((total - salario) / salario) * 100);
+  const fmt = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+  document.getElementById('custo-total').textContent = fmt(total);
+  document.getElementById('custo-anual').textContent = fmt(anual);
+  document.getElementById('v-salario').textContent = fmt(salario);
+  document.getElementById('v-inss').textContent = fmt(inss);
+  document.getElementById('v-fgts').textContent = fmt(fgts);
+  document.getElementById('v-decimo').textContent = fmt(decimo);
+  document.getElementById('v-ferias').textContent = fmt(ferias);
+  document.getElementById('v-outros').textContent = fmt(rat);
+  document.getElementById('pct-acima').textContent = pct + '%';
+}
+calcularCusto();
+
 function enviarForm() {
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const whatsapp = document.getElementById('whatsapp').value.trim(); // Novo campo
-
-    // Validação: agora verifica os três campos
-    if (!nome || !email || !whatsapp) {
-        alert('Por favor, preencha nome, e-mail e WhatsApp.');
-        return;
-    }
-
-    // Feedback visual para o usuário
-    const btn = document.querySelector("button[onclick='enviarForm()']");
-    if(btn) btn.innerText = "Enviando...";
-
-    // Enviar para o Formspree
-    fetch('https://formspree.io/f/mzdkvnrl', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            nome: nome,
-            email: email,
-            whatsapp: whatsapp // Dados enviados para o seu e-mail
-        })
-    }).then(response => {
-        if (response.ok) {
-            alert('Cadastro realizado com sucesso! Entraremos em contato.');
-            // Limpa os campos após o sucesso
-            document.getElementById('nome').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('whatsapp').value = '';
-        } else {
-            alert('Ops! Houve um erro ao enviar. Tente novamente.');
-        }
-    }).catch(error => {
-        alert('Erro na rede. Verifique sua conexão.');
-    }).finally(() => {
-        if(btn) btn.innerText = "Quero meu acesso";
-    });
+  const nome = document.getElementById('nome').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+  if (!nome || !email || !whatsapp) { alert('Por favor, preencha nome, e-mail e WhatsApp.'); return; }
+  const btn = document.querySelector("button[onclick='enviarForm()']");
+  if(btn) btn.innerText = "Enviando...";
+  fetch('https://formspree.io/f/mzdkvnrl', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      nome, email, whatsapp,
+      segmento: document.getElementById('segmento').value,
+      funcionarios: document.getElementById('func').value
+    })
+  }).then(response => {
+    if (response.ok) {
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else { alert('Ops! Houve um erro ao enviar. Tente novamente.'); }
+  }).catch(() => {
+    alert('Erro na rede. Verifique sua conexão.');
+  }).finally(() => {
+    if(btn) btn.innerText = "Quero acesso antecipado com desconto →";
+  });
 }
 
-// Smooth scroll for anchors
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
@@ -958,4 +581,3 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </script>
 </body>
 </html>
-
